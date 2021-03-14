@@ -7,25 +7,38 @@ class UsersPanel extends Component {
     super(props);
 
     this.state = {
-      users: []
+      users: [],
+      userInputValue: ''
     };
+  };
+
+  setUserInputValue = event => {
+    this.setState({
+      userInputValue: event.target.value
+    });
   };
 
   addUser = event => {
     event.preventDefault();
 
-    let newUser = {
-      id: Date.now(),
-      name: this.inputName.value
+    if (this.state.userInputValue !== '') {
+      let newUser = {
+        id: Date.now(),
+        name: this.state.userInputValue
+      };
+  
+      this.setState(state => {
+        return ({
+          users: state.users.concat(newUser)
+        });
+      });
+    } else {
+      console.log('Podaj swoje imię!!')
     };
 
-    this.setState(state => {
-      return ({
-        users: state.users.concat(newUser)
-      });
-    });
-
-    this.inputName.value = '';
+    this.setState({
+      userInputValue: ''
+    })
   };
 
   removeUser = userId => {
@@ -40,7 +53,7 @@ class UsersPanel extends Component {
     return (
       <div className="users-panel">
         <form onSubmit={this.addUser}>
-          <input ref={element => { this.inputName = element }} type="text" placeholder="Enter your name..." />
+          <input onChange={this.setUserInputValue} type="text" placeholder="Enter your name..." value={this.state.userInputValue} />
           <button type="submit">Add user</button>
         </form>
         <UsersList usersList={this.state.users} removeUserMethod={this.removeUser} />

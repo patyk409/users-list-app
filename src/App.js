@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import UsersPanel from './UsersPanel';
+import Users from './Users';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>React App - User's List</h1>
       </header>
-      <UsersPanel />
+      <Users />
     </div>
   );
 }

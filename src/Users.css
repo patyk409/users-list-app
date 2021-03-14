@@ -1,0 +1,31 @@
+.users-panel form {
+  padding: 20px 0;
+}
+
+.users-panel form input {
+  padding: 5px;
+  font-size: 16px;
+  color: #282c34;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  width: 170px;
+  outline: 0;
+}
+
+.users-panel form button {
+  padding: 5px 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #61dafb;
+  border: 2px solid #61dafb;
+  border-radius: 5px;
+  transition: color .3s, background-color .3s;
+  outline: 0;
+}
+
+.users-panel form button:hover {
+  cursor: pointer;
+  color: #61dafb;
+  background-color: #fff;
+}
